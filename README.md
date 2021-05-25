@@ -33,7 +33,7 @@ Para o projeto funcionar na sua maquina é necessário que o:
 
 ```bash
 # Clonar
-$ git clone https://github.com/lucianocarvalho/raxadinha && cd raxadinha
+$ git clone https://github.com/lucasmatsui/transaction-challenge.git
 
 # Renomear .env.example para .env
 $ cp src/.env.example src/.env
