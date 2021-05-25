@@ -6,7 +6,7 @@ services:
   app:
     build: ./.docker/app
     container_name: app
-    entrypoint: /docker-entrypoint.sh
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 40s /docker-entrypoint.sh
     volumes:
       - .:/var/www
     networks:
@@ -51,7 +51,7 @@ services:
     environment:
       - MYSQL_DATABASE=trasaction_challenge
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=root
+      - MYSQL_ROOT_USER=root
     networks:
       - app-network
 
