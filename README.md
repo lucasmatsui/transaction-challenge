@@ -111,3 +111,7 @@ Quando é feita uma transferência com sucesso é adicionado a uma fila de dispa
 ### supervisor
 
 Roda no container do **app** atualmente com 5 workers para processar as filas.
+
+### Modelagem
+![Screenshot](https://user-images.githubusercontent.com/31348487/119587783-c35f7a80-bda5-11eb-8e54-57215d313b8f.png)
+
