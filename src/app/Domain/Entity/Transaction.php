@@ -3,6 +3,7 @@
 namespace Domain\Entity;
 
 use Carbon\Exceptions\InvalidTypeException;
+use Domain\Entity\Contracts\UserCustomerInterface;
 use Domain\Entity\Contracts\UserInterface;
 use Domain\Entity\Users\Shopkeeper;
 use GuzzleHttp\Exception\InvalidArgumentException;
@@ -12,6 +13,9 @@ use Ramsey\Uuid\Type\Decimal;
 
 class Transaction
 {
+    /**
+     * @param UserCustomerInterface $payer
+     */
     public function __construct(
         private UserInterface $payer,
         private UserInterface $payee,
