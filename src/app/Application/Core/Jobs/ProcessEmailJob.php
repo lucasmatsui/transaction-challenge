@@ -2,11 +2,7 @@
 
 namespace App\Jobs;
 
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use InvalidArgumentException;
-use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProcessEmailJob extends Job
@@ -30,11 +26,11 @@ class ProcessEmailJob extends Job
      */
     public function handle()
     {
-        $response = Http::get(env('URL_NOTIFY_SEND_EMAIL'));
+        $response = Http::timeout(15)->get(env('URL_NOTIFY_SEND_EMAIL'));
         $response = $response->json();
 
         if ($response['message'] != 'Success') {
-            return false;
+            throw new NotFoundHttpException("Algo deu errado ao disparar e-mail");
         }
 
         return $this->data;

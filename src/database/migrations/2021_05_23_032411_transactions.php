@@ -32,6 +32,6 @@ class Transactions extends Migration
      */
     public function down()
     {
-        Schema::drop('transactions');
+        Schema::dropIfExists('transactions');
     }
 }

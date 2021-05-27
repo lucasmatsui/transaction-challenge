@@ -22,6 +22,15 @@ class CreateJobsTable extends Migration
             $table->unsignedInteger('available_at');
             $table->unsignedInteger('created_at');
         });
+
+        Schema::create('failed_jobs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('connection');
+            $table->text('queue');
+            $table->longText('payload');
+            $table->longText('exception');
+            $table->timestamp('failed_at')->useCurrent();
+        });
     }
 
     /**
@@ -32,5 +41,6 @@ class CreateJobsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('jobs');
+        Schema::dropIfExists('failed_jobs');
     }
 }

@@ -40,7 +40,7 @@ class Users extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
-        Schema::drop('types');
+        Schema::dropIfExists('users');
+        Schema::dropIfExists('types');
     }
 }
