@@ -1,8 +1,9 @@
 <?php
 
-namespace Tests\Unit;
+namespace Domain\Entity\User\Test\Unit;
 
 use Infrastructure\Factories\UserFactory;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Type\Decimal;
 
@@ -21,6 +22,19 @@ class UserTest extends TestCase
 
         //assert
         $this->assertEquals($expected, $customer->getBalance());
+    }
+
+    public function testCustomerMakeNegativeTransfer(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Valor minimo para transação é 0.01 centavos');
+
+        //arrange
+        $customer = UserFactory::create(1);
+        $customer->setBalance(new Decimal('4000'));
+
+        //act
+        $customer->transfer(new Decimal('-1'));
     }
 
     public function testCustomerReceiveTransfer(): void

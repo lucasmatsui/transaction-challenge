@@ -29,7 +29,11 @@ class Customer implements UserCustomerInterface
     public function transfer(Decimal $amount): void
     {
         if ($amount->toString() > $this->balance->toString()) {
-            throw new InvalidArgumentException("Saldo insuficiente para realizar esta transação");
+            throw new InvalidArgumentException("Saldo insuficiente para realizar esta transação", 402);
+        }
+
+        if ($amount <= new Decimal('0')) {
+            throw new InvalidArgumentException("Valor minimo para transação é 0.01 centavos", 403);
         }
 
         $newBalance = $this->balance->toString() - $amount->toString();
