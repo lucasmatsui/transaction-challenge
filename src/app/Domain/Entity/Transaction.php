@@ -38,11 +38,11 @@ class Transaction
     {
 
         if ($this->payer instanceof Shopkeeper) {
-            throw new InvalidTypeException('Lojistas não podem fazer transferencias', 400);
+            throw new InvalidTypeException('Lojistas não podem fazer transferencias', 403);
         }
 
         if ($this->payer->getId() == $this->payee->getId()) {
-            throw new InvalidUuidStringException('Não é possivel transferir para a sua própria conta', 400);
+            throw new InvalidUuidStringException('Não é possivel transferir para a sua própria conta', 403);
         }
 
         $this->payer->transfer(new Decimal($this->amount));
