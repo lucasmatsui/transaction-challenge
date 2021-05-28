@@ -26,13 +26,13 @@ class TransactionController extends Controller
 
             return response()->json([
                 'message' => $e->getMessage(),
-                'code' => 500,
-            ], 500);
+                'code' => $e->getCode(),
+            ], $e->getCode());
         }
 
         return response()->json([
             'message' => 'Transferencia feita com sucesso',
-            'code' => 200,
-        ], 200);
+            'code' => 201,
+        ], 201);
     }
 }

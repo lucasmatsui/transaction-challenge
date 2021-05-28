@@ -1,8 +1,7 @@
 <?php
 
-namespace Tests\Unit;
+namespace Domain\Entity\Transaction\Test\Integration;
 
-use Carbon\Exceptions\InvalidTypeException;
 use Domain\Entity\Transaction;
 use Infrastructure\Factories\UserFactory;
 use PHPUnit\Framework\TestCase;
