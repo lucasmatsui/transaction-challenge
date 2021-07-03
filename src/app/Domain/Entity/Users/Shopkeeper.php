@@ -29,17 +29,17 @@ class Shopkeeper implements UserInterface
         $this->id = $id;
     }
 
-    public function setName(string $name): void
+    public function setName(Name $name): void
     {
         $this->name = $name;
     }
 
-    public function setCnpj(string $cnpj): void
+    public function setCnpj(Cnpj $cnpj): void
     {
         $this->cnpj = $cnpj;
     }
 
-    public function setEmail(string $email): void
+    public function setEmail(Email $email): void
     {
         $this->email = $email;
     }
@@ -62,5 +62,20 @@ class Shopkeeper implements UserInterface
     public function getId(): string
     {
         return $this->id;
+    }
+
+    public function getName(): Name
+    {
+        return $this->name;
+    }
+
+    public function getCnpj(): Cnpj
+    {
+        return $this->cnpj;
+    }
+
+    public function getEmail(): Email
+    {
+        return $this->email;
     }
 }

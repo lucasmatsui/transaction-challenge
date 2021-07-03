@@ -3,10 +3,8 @@
 namespace Infrastructure\Services;
 
 use App\Jobs\ProcessEmailJob;
-use Domain\Entity\Contracts\UserInterface;
 use Domain\Entity\Transaction;
 use Domain\Services\TransactionServiceInterface;
-use Infrastructure\Factories\UserFactory;
 use Infrastructure\Repositories\TransactionRepository;
 use Infrastructure\Repositories\UserRepository;
 use Ramsey\Uuid\Type\Decimal;
@@ -29,24 +27,10 @@ class TransactionService implements TransactionServiceInterface
         $this->payee = $fields['payee'];
         $this->amount = $fields['amount'];
     }
-
-    public function getUserInstace(string $id): UserInterface
-    {
-        $user = $this->userRepository->getById($id);
-        $type = isset($user['type']) ? $user['type'] : '';
-
-        $UserInstance = UserFactory::create($type);
-        $UserInstance->setId($user['id']);
-        $UserInstance->setBalance(new Decimal($user['balance']));
-
-        return $UserInstance;
-    }
-
-
     public function transfer(): void
     {
-        $payer = $this->getUserInstace($this->payer);
-        $payee = $this->getUserInstace($this->payee);
+        $payer = $this->userRepository->getById($this->payer);
+        $payee = $this->userRepository->getById($this->payee);
 
         $transaction = new Transaction(
             $payer,

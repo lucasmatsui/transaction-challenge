@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
             [
                 'id' => '93c1bc56-b6ac-489a-aa7f-97c014ae8e3b',
                 'name' => 'Lucas',
-                'cpf' => '230.302.92-09',
-                'cnpj' => '670.222.45-23',
+                'cpf' => '363.154.540-11',
+                'cnpj' => '82.456.062/0001-77',
                 'email' => Str::random(10).'@gmail.com',
                 'balance' => 2500,
                 'password' => Hash::make('password'),
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             [
                 'id' => 'ad2b411f-685e-4676-82bf-d0003cc43d19',
                 'name' => 'Fernando',
-                'cpf' => '116.949.820-50',
+                'cpf' => '164.332.880-81',
                 'cnpj' => '',
                 'email' => Str::random(10).'@gmail.com',
                 'balance' => 3450.10,
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             [
                 'id' => '49585f0b-ffdf-4cdc-aebe-a1bb2eed771b',
                 'name' => 'Roberto',
-                'cpf' => '230.302.92-09',
+                'cpf' => '363.154.540-11',
                 'cnpj' => '670.222.45-23',
                 'email' => Str::random(10).'@gmail.com',
                 'balance' => 4000,

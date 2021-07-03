@@ -22,6 +22,6 @@ class UserFactory implements UserFactoryInterface
             return new Shopkeeper();
         }
 
-        throw new InvalidArgumentException('Algo deu errado com a trasferencia, tente mais tarde.', 500);
+        throw new InvalidArgumentException('Algo deu errado, tente novamente', 500);
     }
 }

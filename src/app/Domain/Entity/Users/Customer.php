@@ -46,17 +46,17 @@ class Customer implements UserCustomerInterface
         $this->id = $id;
     }
 
-    public function setName(string $name): void
+    public function setName(Name $name): void
     {
         $this->name = $name;
     }
 
-    public function setCpf(string $cpf): void
+    public function setCpf(Cpf $cpf): void
     {
         $this->cpf = $cpf;
     }
 
-    public function setEmail(string $email): void
+    public function setEmail(Email $email): void
     {
         $this->email = $email;
     }
@@ -79,6 +79,21 @@ class Customer implements UserCustomerInterface
     public function getId(): string
     {
         return $this->id;
+    }
+
+    public function getName(): Name
+    {
+        return $this->name;
+    }
+
+    public function getCpf(): Cpf
+    {
+        return $this->cpf;
+    }
+
+    public function getEmail(): Email
+    {
+        return $this->email;
     }
 
 }
